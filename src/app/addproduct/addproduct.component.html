@@ -1,0 +1,32 @@
+<!-- <app-header></app-header> -->
+<app-productlist [productList]="productList"></app-productlist>
+<div class="container">
+    <h3>Add Your Product Details</h3>
+
+    <div class="container-sm">
+        <div class="col-sm-12">
+            <form  [formGroup]="product" >
+            <label for = "name"> ProductName </label>
+                <input type="text" class="form-control" id = "name" value="" formControlName = "name">
+
+                <label for = "price"> Price </label>
+                <input type="number" class="form-control" id = "price" value="" formControlName = "price">
+
+                <label for = "description"> Description </label>
+                <input type="text" class="form-control" id = "description" value="" formControlName = "description">
+
+                <label for = "img"> Image </label>
+                <input type="text" class="form-control" id = "img" value="" formControlName = "imgPath">
+                </form>
+        </div>
+    </div>
+
+    <hr>
+    <div class="col">
+        <button class="btn btn-primary" [disabled] = 'isEnabled'
+        (click) ="saveProduct()"
+        style="margin-top: 2px; margin-bottom: 2px;">Save product</button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
