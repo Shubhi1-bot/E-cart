@@ -1,5 +1,5 @@
 <!-- <app-header></app-header> -->
-<app-productlist [productList]="productList"></app-productlist>
+
 <div class="container">
     <h3>Add Your Product Details</h3>
 
@@ -23,10 +23,11 @@
 
     <hr>
     <div class="col">
-        <button class="btn btn-primary" [disabled] = 'isEnabled'
+        <button class="btn btn-primary" 
         (click) ="saveProduct()"
         style="margin-top: 2px; margin-bottom: 2px;">Save product</button>
     </div>
 </div>
 
 <router-outlet></router-outlet>
+<!-- <app-productlist [productAdded]="productList"></app-productlist> -->

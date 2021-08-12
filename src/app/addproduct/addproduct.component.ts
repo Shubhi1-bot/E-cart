@@ -2,7 +2,7 @@ import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-
+import { CartserviceService } from '../cartservice.service'
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
@@ -12,30 +12,31 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class AddproductComponent implements OnInit {
    
-  isEnabled ;
-  productList: string[] = [];
+  
+  productList: any = [];
 
    product = new FormGroup({
-     name : new FormControl,
-     price :new FormControl ,
-     description : new FormControl,
-     imgPath : new FormControl
+
+     name : new FormControl('', [Validators.required]),
+     price :new FormControl('', [Validators.required]),
+     description : new FormControl('', [Validators.required]),
+     imgPath : new FormControl('', [Validators.required])
 
   });
 
   saveProduct(){
     let newPrdt = this.product.value;
-    if(this.product.value == '' )
-    {this.isEnabled = true; }
-    else{
-      this.productList.push(newPrdt)
+    
+      this.CartserviceService.setnewProductList(newPrdt)
+
       this.product.reset()
       console.log(this.productList);
       
-    }
+
   }
 
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,
+     private CartserviceService: CartserviceService) { }
 
   ngOnInit(): void {
   }
