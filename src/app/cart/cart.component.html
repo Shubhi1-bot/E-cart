@@ -2,25 +2,28 @@
 
 <div class="row">
     <div class="col-sm-8">
-
-        <div  *ngFor = "let product of cartlist">
+     <!-- <p>Total Items In Your Bag {{cartTotal}}</p> -->
+     <!-- <button class="btn btn-primary" (click) = "cartTotal()">check</button> -->
+        <div  *ngFor = "let product of cartlist; let i = index">
             <div class="float-right">
                 <div class="card" style="margin-left: 5px;">
                     <div class="card-body" >
                 <h4 class="list-group-item-heading">{{product.name}} </h4>
-                        <p class="list-group-item-text"> {{product.description}} </p>
-                        <p class="list-group-item-text"> {{product.price}} </p>
-                        <p class="list-group-item-text"> {{product.imgPath}} </p>
+                        <!-- <p class="list-group-item-text"> {{product.description}} </p> -->
+                        <p class="list-group-item-text">Rs. {{product.price}} </p>
+                        <p class="list-group-item-text">In bag {{product.quantity}} </p>
+                        <!-- <p class="list-group-item-text"> {{product.imgPath}} </p>
                         </div>
                         <span class="float-none">
                             <img src =" {{product.imgPath}} " alt = " {{product.name}} " 
                              
                             class="img-responsive" style="max-height: 30px;">  
-                        </span>
+                        </span> -->
                         <!-- <p class="list-group-item-text">{{product}}</p> -->
                         <div class="row">
                             <div class="col">
-                        <button class="btn btn-primary">Check-Out</button>
+                        <button class="btn btn-primary">Check-Out</button> <br>
+                        <button class="btn btn-primary" (click) = "removeFrom(i)">Delete from Cart</button>
                             </div>
                         </div>
                     </div>

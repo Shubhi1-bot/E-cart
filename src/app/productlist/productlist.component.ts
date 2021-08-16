@@ -14,23 +14,59 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
  export class ProductlistComponent implements OnInit {
 
  productlist : any;
-
+ 
+ addQuantityNum ;
   constructor(private route: ActivatedRoute,
      private CartserviceService: CartserviceService) { }
 
-  
+  addQuantity(i){
+    this.addQuantityNum[i] = this.addQuantityNum;
+  }
 
   ngOnInit(): void { 
-    this.productlist = this.CartserviceService.getProductList()
-    console.log(this.productlist);
+    var product = localStorage.getItem("products");
+    if((product==null)===false){
+      this.productlist = JSON.parse(product); // to  convert into object
+      console.log(this.productlist);
+      }
   }
+   
+   
   addToCart(product:any){
     
     let newproduct = product;
 
-    this.CartserviceService.setNewCart(newproduct)
-
-      console.log("Productlist Page", newproduct);
+    
+    let msg = "your product has been added to the cart";
+    alert(msg);
+    for(let i = 0; i < this.productlist.length; i++){
+      
+      if(this.productlist[i].name == product.name){
+        this.productlist[i].quantity = this.productlist[i].quantity - 1;
+        var modiProd = JSON.stringify(this.productlist)
+        localStorage.setItem("products", modiProd)
+        let cart = {
+          "name" : newproduct.name,
+           "price" : newproduct.price,
+           "quantity" : 1
+        }
+        this.CartserviceService.setNewCart(cart)
+        return
+      }
+     }
+    
+  
+      
   }
-
+  
+  
+  deleteProduct(i){
+    
+      console.log(i)
+       this.productlist.splice(i, 1);
+       var modiProd = JSON.stringify(this.productlist)
+     localStorage.setItem("products", modiProd)
+     
+  }
+  
 }

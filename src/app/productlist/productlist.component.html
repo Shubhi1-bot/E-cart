@@ -1,9 +1,9 @@
 <!-- <app-header></app-header> -->
 
 
-<div class="row">
+<div class="container-sm">
     <h3>Product List</h3>
-    <div class="col-xs-8">
+    <div class="col-xs-4.col-sm-3">
 
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
@@ -17,13 +17,13 @@
           </ul>
         
         
-        <div  *ngFor = "let product of productlist">
-        <div class="float-right">
-            <div class="card">
-                <div class="card-body">
+        <div  *ngFor = "let product of productlist; let i = index">
+        <div class="float-right" *ngIf = "product.quantity >  0">
+            <div class="card" style="margin-left: 5px; width: 30%; height: 30%;">
+                <div class="col-xs-4.col-sm-3">
             <h4 class="list-group-item-heading">{{product.name}} </h4>
                     <p class="list-group-item-text"> {{product.description}} </p>
-                    <p class="list-group-item-text"> {{product.price}} </p>
+                    <p class="list-group-item-text">Rs. {{product.price}} </p>
                     <p class="list-group-item-text"> {{product.imgPath}} </p>
                     </div>
                     <span class="float-none">
@@ -31,10 +31,15 @@
                          
                         class="img-responsive" style="max-height: 30px;">  
                     </span>
+                    <p class="list-group-item-text">In stock {{product.quantity}} </p> 
                     <div class="row">
                         <div class="col">
-                    <button class="btn btn-primary"  (click) ="addToCart(product)">Add to Cart</button>
+                          <label for="addQuantity">Add</label>
+                          <input type="number" [(ngModal)]= "addQuantityNum">
+                    <button class="btn btn-primary"  (click) ="addToCart(product)" >Add to Cart</button> <br>
+                    <button class="btn btn-primary"  (click) ="deleteProduct(i)" > Delete</button>
                         </div>
+                        
                     </div>
                 </div>
                     </div>

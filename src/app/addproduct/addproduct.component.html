@@ -7,13 +7,44 @@
         <div class="col-sm-12">
             <form  [formGroup]="product" >
             <label for = "name"> ProductName </label>
-                <input type="text" class="form-control" id = "name" value="" formControlName = "name">
+                <input  type="text" class="form-control" id = "name" value="" formControlName = "name" required> 
 
+                <div *ngIf="product.controls['name'].invalid && product.controls['name'].touched" 
+                class="alert alert-danger">
+                    <div *ngIf="product.controls['name'].errors.required">
+                    Name is required.
+                  </div>
+                </div>
+                
                 <label for = "price"> Price </label>
-                <input type="number" class="form-control" id = "price" value="" formControlName = "price">
+                <input type="number" class="form-control" id = "price" value="" formControlName = "price" required>
+
+                <div *ngIf="product.controls['price'].invalid && product.controls['price'].touched" 
+                class="alert alert-danger">
+                    <div *ngIf="product.controls['price'].errors.required">
+                    Price is required.
+                  </div>
+                </div>
+
+                <label for = "quantity"> Quantity </label>
+                <input type="number" class="form-control" id = "quantity" value="" formControlName = "quantity" required>
+
+                <div *ngIf="product.controls['quantity'].invalid && product.controls['quantity'].touched" 
+                class="alert alert-danger">
+                    <div *ngIf="product.controls['quantity'].errors.required">
+                    Quantity is required.
+                  </div>
+                </div>                
 
                 <label for = "description"> Description </label>
-                <input type="text" class="form-control" id = "description" value="" formControlName = "description">
+                <input type="text" class="form-control" id = "description" value="" formControlName = "description" required>
+
+                <div *ngIf="product.controls['description'].invalid && product.controls['description'].touched" 
+                class="alert alert-danger">
+                    <div *ngIf="product.controls['description'].errors.required">
+                    Description is required.
+                  </div>
+                </div>
 
                 <label for = "img"> Image </label>
                 <input type="text" class="form-control" id = "img" value="" formControlName = "imgPath">
@@ -22,8 +53,8 @@
     </div>
 
     <hr>
-    <div class="col">
-        <button class="btn btn-primary" 
+    <div class="button">
+        <button class="btn btn-primary"
         (click) ="saveProduct()"
         style="margin-top: 2px; margin-bottom: 2px;">Save product</button>
     </div>
