@@ -34,8 +34,10 @@
                     <p class="list-group-item-text">In stock {{product.quantity}} </p> 
                     <div class="row">
                         <div class="col">
-                          <label for="addQuantity">Add</label>
-                          <input type="number" [(ngModal)]= "addQuantityNum">
+                         
+                          <button class="add-btn" (click) = "increaseProduct(i)">Add</button>
+                          <span>{{addQuantity}} </span>
+                          <button class="delete-btn" (click) = "decreaseProduct(i)">dec</button>
                     <button class="btn btn-primary"  (click) ="addToCart(product)" >Add to Cart</button> <br>
                     <button class="btn btn-primary"  (click) ="deleteProduct(i)" > Delete</button>
                         </div>

@@ -10,8 +10,8 @@ export class CartserviceService {
   constructor() { 
   }
 
-private productList = [];
-addQuantity ;
+ productList = [];
+ quantity : any;
  setnewProductList(value){
 
   
@@ -22,10 +22,7 @@ addQuantity ;
   this.productList = JSON.parse(product); // to  convert into object
   console.log(this.productList);
   }
-// if(this.productList != null || typeof this.productList != 'undefined'){
 
-  
-//   console.log(this.productList);
  for(let i = 0; i < this.productList.length; i++){
       
    if(this.productList[i].name == value.name){
@@ -47,6 +44,13 @@ addQuantity ;
  
 }
 getProductList(){
+
+  var product = localStorage.getItem("products");
+
+    if((product==null)===false){
+    this.productList = JSON.parse(product); // to  convert into object
+    console.log(this.productList);
+    }
   return this.productList;
 }
 
@@ -58,29 +62,35 @@ getProductList(){
   if((cartproduct==null)===false){
   this.cartList = JSON.parse(cartproduct); // to  convert into object
   console.log(this.cartList);
+  
    }
+  
   if(this.cartList.length > 0){
+    console.log("1");
     for(let i = 0; i < this.cartList.length; i++) {
       if(this.cartList[i].name == value.name){
+        console.log("2");
         this.cartList[i].quantity += value.quantity;
         var modiProd = JSON.stringify(this.cartList);
         localStorage.setItem("cartproducts", modiProd);
         return
        }
       
-          else{
-            
-            this.cartList.push(value);
-            var modiProd = JSON.stringify(this.cartList);
-              localStorage.setItem("cartproducts", modiProd);
-              console.log(this.cartList, "heyy");
-              return
-          }
+         
         }
+        
+          console.log("3");
+          this.cartList.push(value);
+          
+          var modiProd = JSON.stringify(this.cartList);
+            localStorage.setItem("cartproducts", modiProd);
+            console.log(this.cartList, "heyy");
+            return
         
       }
   
   else{
+    console.log("4");
     this.cartList.push(value);
    var modiProd = JSON.stringify(this.cartList);
      localStorage.setItem("cartproducts", modiProd);
@@ -92,6 +102,38 @@ getProductList(){
 }
 
  getCartList(){
+
    return this.cartList;
  }
+ 
+ setProductQuantity(i){
+  var product = localStorage.getItem("products");
+
+  if((product==null)===false){
+  this.productList = JSON.parse(product); // to  convert into object
+  console.log(this.productList);
+  }
+
+   console.log(this.productList);
+   this.productList[i].quantity++;
+
+   var modiProd = JSON.stringify(this.productList)
+     localStorage.setItem("products", modiProd)
+   
+ }
+  decProdQaun(i){
+    var product = localStorage.getItem("products");
+
+    if((product==null)===false){
+    this.productList = JSON.parse(product); // to  convert into object
+    console.log(this.productList);
+    }
+
+    console.log(this.productList);
+    this.productList[i].quantity--;
+
+    var modiProd = JSON.stringify(this.productList)
+     localStorage.setItem("products", modiProd)
+  }
+  
 }

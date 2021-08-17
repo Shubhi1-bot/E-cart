@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartserviceService } from '../cartservice.service'
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { LocalstorageService } from '../localstorage.service';
+import { ProductlistComponent } from '../productlist/productlist.component';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +14,7 @@ import { LocalstorageService } from '../localstorage.service';
 export class CartComponent implements OnInit {
   
   cartlist : any; 
-
+   
   public setCart(){
     this.localStoragService.setItem('form-data', JSON.stringify(this.cartlist) )
   
@@ -53,6 +55,29 @@ get cartTotal(){
    }
    return count;
  }
+ newQuantity;
+ increment(i){
+   let list = this.CartserviceService.getProductList();
+   if( list[i].quantity > 1) {
+    this.CartserviceService.decProdQaun(i);
+    this.cartlist[i].quantity++;
 
- 
+    
+   }
+  //  this.CartserviceService.productList[i].quantity--;
+  
+  var modiProd = JSON.stringify(this.cartlist)
+  localStorage.setItem("cartproducts", modiProd)
+   
+ }
+ decrement(i){
+   if(this.cartlist[i].quantity > 1)
+   {
+  this.CartserviceService.setProductQuantity(i);
+   this.cartlist[i].quantity--;
+  }
+
+  var modiProd = JSON.stringify(this.cartlist)
+   localStorage.setItem("cartproducts", modiProd)
+}
 }

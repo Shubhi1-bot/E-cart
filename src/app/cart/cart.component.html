@@ -11,6 +11,7 @@
                 <h4 class="list-group-item-heading">{{product.name}} </h4>
                         <!-- <p class="list-group-item-text"> {{product.description}} </p> -->
                         <p class="list-group-item-text">Rs. {{product.price}} </p>
+                        
                         <p class="list-group-item-text">In bag {{product.quantity}} </p>
                         <!-- <p class="list-group-item-text"> {{product.imgPath}} </p>
                         </div>
@@ -22,6 +23,9 @@
                         <!-- <p class="list-group-item-text">{{product}}</p> -->
                         <div class="row">
                             <div class="col">
+                                <button class="add-btn" (click) = "increment(i)">Add</button>
+                          <span>{{product.quantity}} </span>
+                          <button class="delete-btn" (click) = "decrement(i)">dec</button>
                         <button class="btn btn-primary">Check-Out</button> <br>
                         <button class="btn btn-primary" (click) = "removeFrom(i)">Delete from Cart</button>
                             </div>
