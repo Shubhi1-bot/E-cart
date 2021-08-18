@@ -15,8 +15,8 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
  export class ProductlistComponent implements OnInit {
 
  productlist : any;
- 
-
+  
+  
   constructor(private route: ActivatedRoute,
      private CartserviceService: CartserviceService) { }
 
@@ -40,13 +40,14 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
     alert(msg);
     for(let i = 0; i < this.productlist.length; i++){
       
-      if(this.productlist[i].name == product.name){
+      if(this.productlist[i].productId == product.productId){
         this.productlist[i].quantity = this.productlist[i].quantity - this.addQuantity;
         var modiProd = JSON.stringify(this.productlist)
         localStorage.setItem("products", modiProd)
         
         let cart = {
           "name" : newproduct.name,
+          "productId" : newproduct.productId,
            "price" : newproduct.price,
            "quantity" : this.addQuantity,
            

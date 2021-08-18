@@ -16,6 +16,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

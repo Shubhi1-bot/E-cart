@@ -5,6 +5,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CartserviceService } from '../cartservice.service'
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { LocalstorageService } from '../localstorage.service';
+import {v4 as uuidv4} from 'uuid';
+
 
 @Component({
   selector: 'app-addproduct',
@@ -15,16 +17,17 @@ export class AddproductComponent implements OnInit {
    
   
   productList: any = [];
+      
 
    product = new FormGroup({
 
      name : new FormControl('', [Validators.required]),
+     productId : new FormControl('', [Validators.required]),
      price :new FormControl('', [Validators.required]),
      quantity : new FormControl('',[Validators.required]),
      description : new FormControl('', [Validators.required]),
      imgPath : new FormControl('', [Validators.required]),
      
-
   });
 
   public setProduct(){
@@ -38,8 +41,9 @@ export class AddproductComponent implements OnInit {
 
   saveProduct(){
 
-    
+   
     let newPrdt = this.product.value;
+    // newPrdt.skuId = uuidv4();
     // console.log(newPrdt);
     // return
     this.CartserviceService.setnewProductList(newPrdt)

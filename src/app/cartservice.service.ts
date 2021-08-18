@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {v4 as uuidv4} from 'uuid';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ export class CartserviceService {
   private localStorage: Storage;
   constructor() { 
   }
-
+  serialId = uuidv4(); 
  productList = [];
  quantity : any;
  setnewProductList(value){
@@ -25,7 +26,7 @@ export class CartserviceService {
 
  for(let i = 0; i < this.productList.length; i++){
       
-   if(this.productList[i].name == value.name){
+   if(this.productList[i].productId == value.productId){
      this.productList[i].quantity+= value.quantity;
      var modiProd = JSON.stringify(this.productList)
      localStorage.setItem("products", modiProd)
@@ -68,7 +69,7 @@ getProductList(){
   if(this.cartList.length > 0){
     console.log("1");
     for(let i = 0; i < this.cartList.length; i++) {
-      if(this.cartList[i].name == value.name){
+      if(this.cartList[i].productId == value.productId){
         console.log("2");
         this.cartList[i].quantity += value.quantity;
         var modiProd = JSON.stringify(this.cartList);

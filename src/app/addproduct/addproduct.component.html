@@ -2,7 +2,7 @@
 
 <div class="container">
     <h3>Add Your Product Details</h3>
-
+    
     <div class="container-sm">
         <div class="col-sm-12">
             <form  [formGroup]="product" >
@@ -16,6 +16,18 @@
                   </div>
                 </div>
                 
+                <label for = "productId"> Product-Id </label>
+                <input  type="number" class="form-control" id = "productId" value="" formControlName = "productId" 
+                required maxlength=""> 
+
+                <div *ngIf="product.controls['productId'].invalid && product.controls['productId'].touched" 
+                class="alert alert-danger">
+                    <div *ngIf="product.controls['productId'].errors.required">
+                    Product-Id is required, Maxlength is 4.
+                  </div>
+                </div>
+                
+
                 <label for = "price"> Price </label>
                 <input type="number" class="form-control" id = "price" value="" formControlName = "price" required>
 
@@ -48,6 +60,7 @@
 
                 <label for = "img"> Image </label>
                 <input type="text" class="form-control" id = "img" value="" formControlName = "imgPath">
+                
                 </form>
         </div>
     </div>

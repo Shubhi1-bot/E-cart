@@ -15,21 +15,24 @@
               </ul>
             </li>
           </ul>
-        
+          
         
         <div  *ngFor = "let product of productlist; let i = index">
+          <!-- <p>Serial Id {{product.skuId}} </p> -->
+
         <div class="float-right" *ngIf = "product.quantity >  0">
             <div class="card" style="margin-left: 5px; width: 30%; height: 30%;">
                 <div class="col-xs-4.col-sm-3">
+                  <p class="list-group-item-text">Unique P.Id-{{product.productId}} </p>
             <h4 class="list-group-item-heading">{{product.name}} </h4>
                     <p class="list-group-item-text"> {{product.description}} </p>
                     <p class="list-group-item-text">Rs. {{product.price}} </p>
-                    <p class="list-group-item-text"> {{product.imgPath}} </p>
+                    <!-- <p class="list-group-item-text"> {{product.imgPath}} </p> -->
                     </div>
                     <span class="float-none">
-                        <img src =" {{product.imgPath}} " alt = " {{product.name}} " 
+                        <img [src] =" product.imgPath "  [alt] = " product.name " 
                          
-                        class="img-responsive" style="max-height: 30px;">  
+                        class="img-responsive" style="height: 100px; width: 50;">  
                     </span>
                     <p class="list-group-item-text">In stock {{product.quantity}} </p> 
                     <div class="row">
