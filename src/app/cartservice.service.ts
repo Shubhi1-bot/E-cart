@@ -55,7 +55,7 @@ getProductList(){
   return this.productList;
 }
 
- private cartList = [];
+  cartList = [];
  
  setNewCart(value){
   let cartproduct = localStorage.getItem("cartproducts");
@@ -122,19 +122,19 @@ getProductList(){
      localStorage.setItem("products", modiProd)
    
  }
-  decProdQaun(i){
-    var product = localStorage.getItem("products");
+ decProdQaun(i){
+  var product = localStorage.getItem("products");
 
-    if((product==null)===false){
-    this.productList = JSON.parse(product); // to  convert into object
-    console.log(this.productList);
-    }
-
-    console.log(this.productList);
-    this.productList[i].quantity--;
-
-    var modiProd = JSON.stringify(this.productList)
-     localStorage.setItem("products", modiProd)
+  if((product==null)===false){
+  this.productList = JSON.parse(product); // to  convert into object
+  console.log(this.productList);
   }
+
+  console.log(this.productList);
+  this.productList[i].quantity--;
+
+  var modiProd = JSON.stringify(this.productList)
+   localStorage.setItem("products", modiProd)
+}
   
 }

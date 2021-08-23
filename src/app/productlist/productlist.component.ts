@@ -6,6 +6,7 @@ import { FormGroup } from '@angular/forms';
 import { CartserviceService } from '../cartservice.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { resetFakeAsyncZone } from '@angular/core/testing';
 
 @Component({
   selector: 'app-productlist',
@@ -41,7 +42,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
     for(let i = 0; i < this.productlist.length; i++){
       
       if(this.productlist[i].productId == product.productId){
-        this.productlist[i].quantity = this.productlist[i].quantity - this.addQuantity;
+        this.productlist[i].quantity = this.productlist[i].quantity - this.productlist[i].add;
         var modiProd = JSON.stringify(this.productlist)
         localStorage.setItem("products", modiProd)
         
@@ -49,7 +50,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
           "name" : newproduct.name,
           "productId" : newproduct.productId,
            "price" : newproduct.price,
-           "quantity" : this.addQuantity,
+           "quantity" : newproduct.add
            
         }
         this.CartserviceService.setNewCart(cart)
@@ -70,22 +71,19 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
      localStorage.setItem("products", modiProd)
      
   }
-   addQuantity = 1;
+   
    
   increaseProduct(i){
     let nums = this.productlist[i].quantity;
-   if(this.addQuantity < nums){
-     this.addQuantity++; 
+   if(this.productlist[i].add < nums){
+    this.productlist[i].add++; 
+    
     }
   }
   
   decreaseProduct(i){
-    if(this.addQuantity != 1){
-     this.addQuantity--; 
+    if(this.productlist[i].add != 1){
+      this.productlist[i].add--; 
     }
 }
  }
-// <input class="form-control" 
-// type="number" min="0" id="path_latsArray_{{i}}"
-//  name="path_latsArray_{{i}}" 
-// value="{{coords[0]}}" (change)="updateLatLngsArray('path',i,drawLineCoordArray)">

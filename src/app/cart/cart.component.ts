@@ -40,9 +40,16 @@ export class CartComponent implements OnInit {
 }
 removeFrom(i){
   console.log(i)
+  
    this.cartlist.splice(i, 1);
+
+ 
+  //  let list = this.CartserviceService.getProductList();
+  //  list[i] = list[i] + this.cartlist[i].quantity;
+
    var modiProd = JSON.stringify(this.cartlist)
    localStorage.setItem("cartproducts", modiProd)
+
  }
 get cartTotal(){
    let count = 0;
@@ -58,10 +65,10 @@ get cartTotal(){
  newQuantity;
  increment(i){
    let list = this.CartserviceService.getProductList();
-   if( list[i].quantity > 1) {
+   if(list[i].quantity > 1) {
     this.CartserviceService.decProdQaun(i);
     this.cartlist[i].quantity++;
-
+     
     
    }
   //  this.CartserviceService.productList[i].quantity--;

@@ -27,6 +27,7 @@ export class AddproductComponent implements OnInit {
      quantity : new FormControl('',[Validators.required]),
      description : new FormControl('', [Validators.required]),
      imgPath : new FormControl('', [Validators.required]),
+     addQuantity : new FormControl('', [Validators.required]),
      
   });
 
@@ -43,6 +44,7 @@ export class AddproductComponent implements OnInit {
 
    
     let newPrdt = this.product.value;
+    newPrdt.add = 1;
     // newPrdt.skuId = uuidv4();
     // console.log(newPrdt);
     // return

@@ -14,7 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
+import { CartserviceService } from './cartservice.service';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule
     
   ],
-  providers: [],
+  providers: [CartserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
