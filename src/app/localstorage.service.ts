@@ -9,21 +9,21 @@ function getLocalStorage(): Storage {
 })
 export class LocalstorageService {
 
-  
+
 
   constructor() { }
   public setItem(key: string, value: any) {
     localStorage.setItem(key, value);
   }
-    
-  public getItem(key: string){ 
+
+  public getItem(key: string) {
     return localStorage.getItem(key)
   }
-  public removeItem(key:string) {
+  public removeItem(key: string) {
     localStorage.removeItem(key);
   }
-  public clear(){
-    localStorage.clear(); 
+  public clear() {
+    localStorage.clear();
   }
 
 }

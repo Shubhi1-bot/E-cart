@@ -1,0 +1,7 @@
+.container-fluid{
+    background-color: lightgray;
+}
+
+a:hover{
+    background-color: darkgray;
+}

@@ -21,6 +21,8 @@
     "@angular/router": "~11.0.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^5.1.0",
+    "font-awesome": "^4.7.0",
+    "mdb-ui-kit": "^3.9.0",
     "ngx-barcode": "^0.3.0",
     "ngx-bootstrap": "^7.0.0",
     "rxjs": "~6.6.0",

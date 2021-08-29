@@ -1,0 +1,176 @@
+/* :host {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  } */
+  .btnPosition{
+      top: 0 !important;
+      
+  }
+  .card{
+    background-color: beige;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+.back{
+  background-image: url(https://img.freepik.com/free-photo/spices-black-background-space-text_169016-3118.jpg?size=626&ext=jpg);
+   
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    width: auto;
+    height: 100%;
+    -webkit-filter: blur(5px);
+    
+    filter: blur(5px);
+    background-size: cover;
+
+    background-repeat: repeat;
+}
+
+/* cards_landscape_wrap-2{
+  text-align: center;
+  background: #F7F7F7;
+} */
+/* #cards_landscape_wrap-2 .container-fluid{
+  padding-top: 80px; 
+  padding-bottom: 100px;
+} */
+
+#cards_landscape_wrap-2 .bg-image {
+  border-radius: 5px;
+  background-color: lightcyan;
+}
+#cards_landscape_wrap-2 .bg-image .image-box{
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.50);
+  border-radius: 5px;
+}
+#cards_landscape_wrap-2 .bg-image .image-box img{
+   transition: transform .9s;
+  -webkit-transition:all .9s ease; 
+  -moz-transition:all .9s ease; 
+  -o-transition:all .9s ease;
+  -ms-transition:all .9s ease; 
+  width: 100%;
+  height: 200px;
+}
+#cards_landscape_wrap-2 .bg-image:hover .image-box img{
+  opacity: 0.7;
+  transform: scale(1.5);
+  -webkit-transform:scale(1.15);
+  -moz-transform:scale(1.15);
+  -ms-transform:scale(1.15);
+  -o-transform:scale(1.15);
+  transform:scale(1.15);
+}
+
+#cards_landscape_wrap-2 .bg-image{
+  background: #FFFFFF;
+  
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
+}
+#cards_landscape_wrap-2 .bg-image :hover{
+  background: #fff;
+  box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  margin-top: 20px;
+}
+/* :host {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  } */
+  .card{
+    background-color: beige;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+.back{
+  background-image: url(https://img.freepik.com/free-photo/spices-black-background-space-text_169016-3118.jpg?size=626&ext=jpg);
+   
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    width: auto;
+    height: 100%;
+    -webkit-filter: blur(5px);
+    
+    filter: blur(5px);
+    background-size: cover;
+
+    background-repeat: repeat;
+}
+
+/* cards_landscape_wrap-2{
+  text-align: center;
+  background: #F7F7F7;
+} */
+/* #cards_landscape_wrap-2 .container-fluid{
+  padding-top: 80px; 
+  padding-bottom: 100px;
+} */
+
+#cards_landscape_wrap-2 .bg-image {
+  border-radius: 5px;
+  background-color: lightcyan;
+}
+#cards_landscape_wrap-2 .bg-image .image-box{
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.50);
+  border-radius: 5px;
+}
+#cards_landscape_wrap-2 .bg-image .image-box img{
+   transition: transform .9s;
+  -webkit-transition:all .9s ease; 
+  -moz-transition:all .9s ease; 
+  -o-transition:all .9s ease;
+  -ms-transition:all .9s ease; 
+  width: 100%;
+  height: 200px;
+}
+#cards_landscape_wrap-2 .bg-image:hover .image-box img{
+  opacity: 0.7;
+  transform: scale(1.5);
+  -webkit-transform:scale(1.15);
+  -moz-transform:scale(1.15);
+  -ms-transform:scale(1.15);
+  -o-transform:scale(1.15);
+  transform:scale(1.15);
+}
+
+#cards_landscape_wrap-2 .bg-image{
+  background: #FFFFFF;
+  
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
+}
+#cards_landscape_wrap-2 .bg-image :hover{
+  background: #fff;
+  box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  margin-top: 20px;
+}

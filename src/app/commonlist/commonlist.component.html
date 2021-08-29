@@ -1,0 +1,99 @@
+<div id="cards_landscape_wrap-2">
+    <div class="container-fluid">
+
+        <h3 style="color: linen;">{{title}}</h3>
+        <div *ngIf=displayPage class="back" style="background-image: 
+        url(https://img.freepik.com/free-photo/spices-black-background-space-text_169016-3118.jpg?size=626&ext=jpg);
+      -webkit-filter: blur(5px);
+     
+      filter: blur(5px);
+      height: 100%;"></div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" role="button">
+                    Catagories <span class="caret"></span> </a>
+                <ul class="dropdown-menu">
+                    <li> <a href="#">Fashion</a> </li>
+                    <li> <a href="#">Food</a> </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="row">
+
+            <div class="col-lg-2" *ngFor="let product of displayList; let i = index">
+                <!-- <p>Serial Id {{product.skuId}} </p> -->
+
+                <div class="float-right" *ngIf="product.quantity >  0">
+
+                    <div class="card"
+                        style="margin-left: 5px; margin-bottom: 5px; max-width: 200px; border: 1.5px solid black">
+
+
+                        <div>
+                            <p class="list-group-item-text" style="font-size: x-small;font-weight: bolder;">
+                                Unique-Id{{product.productId}} </p>
+                            <h4 class="list-group-item-heading">{{product.name}} </h4>
+
+                            <p *ngIf=displayPage class="list-group-item-text"> {{product.description}} </p>
+                            <p class="list-group-item-text">Rs. {{product.price}} </p>
+                            <!-- <p class="list-group-item-text"> {{product.imgPath}} </p> -->
+
+                            <div class="bg-image hover-zoom">
+
+                                <img class="img-box" [src]=" product.imgPath " [alt]=" product.name " style="background-image: url(product.imgPath);
+                              border-radius: 5px; height: 150px; max-width: 180px; margin-left: 5px;">
+
+                            </div>
+                            <p *ngIf=displayPage class="list-group-item-text">In stock {{product.quantity}} </p>
+
+
+                            <button class="add-btn" (click)="conditionalInc(i)" style="width: 20px; height: 20px; 
+                     font-size: 10px; border-radius: 5px; font-weight: bold;"> + </button>
+                            <span *ngIf="displayPage;else cart_content">
+                                {{product.add}}
+                            </span>
+
+                            <ng-template #cart_content><span>{{product.quantity}} </span></ng-template>
+
+                            <button class="delete-btn" (click)="conditionalDec(i)" style="width: 20px; height: 20px; font-size: 10px; border-radius: 5px; 
+                         font-weight: bold;">-</button> <br>
+
+                            <button *ngIf=displayPage class="btn btn-outline-primary" (click)="addToCart(product)"
+                                style="width: 80px; height: 30px; font-size: 10px;">Add to Cart</button>
+
+                            <button [class.btnPosition]="!displayPage" (click)="conditionalDlt(i)" style="width: 50px; height: 30px; font-size: 10px; position: absolute; top: 1; right: 0;
+                         margin-right:4px; border:none; background-color:beige; ">
+                                <i class="material-icons">&#xe872;</i></button><br>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<hr>
+<div *ngIf=!displayPage class="bag" style="position:relative; left: 0; top: 0;">
+
+    <div class="cart" style="font-weight: bolder; font-style: italic; position: relative; bottom: 1;
+    right: 0;
+    border: 3px solid black; max-width: 200px; ">
+        <p>
+            Cart Total in Rs. ={{total}}</p>
+    </div>
+</div>
+
+<div>
+    <button class="btn btn-primary" style="width: 120px; height: 30px; font-size: 15px;
+                position: absolute; bottom: 1; right: 0;">
+        Check-Out</button>
+
+</div>
+<router-outlet></router-outlet>

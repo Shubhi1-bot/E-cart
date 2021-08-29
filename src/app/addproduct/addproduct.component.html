@@ -1,76 +1,73 @@
 <!-- <app-header></app-header> -->
 
 <div class="container">
-    <h3>Add Your Product Details</h3>
-    
-    <div class="container-sm">
-        <div class="col-sm-12">
-            <form  [formGroup]="product" >
-            <label for = "name"> ProductName </label>
-                <input  type="text" class="form-control" id = "name" value="" formControlName = "name" required> 
+  <h3>Add Your Product Details</h3>
 
-                <div *ngIf="product.controls['name'].invalid && product.controls['name'].touched" 
-                class="alert alert-danger">
-                    <div *ngIf="product.controls['name'].errors.required">
-                    Name is required.
-                  </div>
-                </div>
-                
-                <label for = "productId"> Product-Id </label>
-                <input  type="number" class="form-control" id = "productId" value="" formControlName = "productId" 
-                required maxlength=""> 
+  <div class="container-sm">
+    <div class="col-sm-12">
+      <form [formGroup]="product">
+        <label for="name"> ProductName </label>
+        <input type="text" class="form-control" id="name" value="" formControlName="name" required>
 
-                <div *ngIf="product.controls['productId'].invalid && product.controls['productId'].touched" 
-                class="alert alert-danger">
-                    <div *ngIf="product.controls['productId'].errors.required">
-                    Product-Id is required, Maxlength is 4.
-                  </div>
-                </div>
-                
-
-                <label for = "price"> Price </label>
-                <input type="number" class="form-control" id = "price" value="" formControlName = "price" required>
-
-                <div *ngIf="product.controls['price'].invalid && product.controls['price'].touched" 
-                class="alert alert-danger">
-                    <div *ngIf="product.controls['price'].errors.required">
-                    Price is required.
-                  </div>
-                </div>
-
-                <label for = "quantity"> Quantity </label>
-                <input type="number" class="form-control" id = "quantity" value="" formControlName = "quantity" required>
-
-                <div *ngIf="product.controls['quantity'].invalid && product.controls['quantity'].touched" 
-                class="alert alert-danger">
-                    <div *ngIf="product.controls['quantity'].errors.required">
-                    Quantity is required.
-                  </div>
-                </div>                
-
-                <label for = "description"> Description </label>
-                <input type="text" class="form-control" id = "description" value="" formControlName = "description" required>
-
-                <div *ngIf="product.controls['description'].invalid && product.controls['description'].touched" 
-                class="alert alert-danger">
-                    <div *ngIf="product.controls['description'].errors.required">
-                    Description is required.
-                  </div>
-                </div>
-
-                <label for = "img"> Image </label>
-                <input type="text" class="form-control" id = "img" value="" formControlName = "imgPath">
-                
-                </form>
+        <div *ngIf="product.controls['name'].invalid && product.controls['name'].touched" class="alert alert-danger">
+          <div *ngIf="product.controls['name'].errors.required">
+            Name is required.
+          </div>
         </div>
-    </div>
 
-    <hr>
-    <div class="button">
-        <button class="btn btn-primary"
-        (click) ="saveProduct()"
-        style="margin-top: 2px; margin-bottom: 2px;">Save product</button>
+        <label for="productId"> Product-Id </label>
+        <input type="number" class="form-control" id="productId" value="" formControlName="productId" required
+          maxlength="">
+
+        <div *ngIf="product.controls['productId'].invalid && product.controls['productId'].touched"
+          class="alert alert-danger">
+          <div *ngIf="product.controls['productId'].errors.required">
+            Product-Id is required, Maxlength is 4.
+          </div>
+        </div>
+
+
+        <label for="price"> Price </label>
+        <input type="number" class="form-control" id="price" value="" formControlName="price" required>
+
+        <div *ngIf="product.controls['price'].invalid && product.controls['price'].touched" class="alert alert-danger">
+          <div *ngIf="product.controls['price'].errors.required">
+            Price is required.
+          </div>
+        </div>
+
+        <label for="quantity"> Quantity </label>
+        <input type="number" class="form-control" id="quantity" value="" formControlName="quantity" required>
+
+        <div *ngIf="product.controls['quantity'].invalid && product.controls['quantity'].touched"
+          class="alert alert-danger">
+          <div *ngIf="product.controls['quantity'].errors.required">
+            Quantity is required.
+          </div>
+        </div>
+
+        <label for="description"> Description </label>
+        <input type="text" class="form-control" id="description" value="" formControlName="description" required>
+
+        <div *ngIf="product.controls['description'].invalid && product.controls['description'].touched"
+          class="alert alert-danger">
+          <div *ngIf="product.controls['description'].errors.required">
+            Description is required.
+          </div>
+        </div>
+
+        <label for="img"> Image </label>
+        <input type="text" class="form-control" id="img" value="" formControlName="imgPath">
+
+      </form>
     </div>
+  </div>
+
+  <hr>
+  <div class="button">
+    <button class="btn btn-primary" (click)="saveProduct()" style="margin-top: 2px; margin-bottom: 2px;">Save
+      product</button>
+  </div>
 </div>
 
 <router-outlet></router-outlet>
